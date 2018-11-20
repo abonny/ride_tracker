@@ -1,15 +1,13 @@
 package com.pluralsight.repository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.PreparedStatementCreator;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import com.pluralsight.model.Ride;
@@ -27,7 +25,6 @@ public class RideRepositoryImpl implements RideRepository {
         //"Update" does everything but select.
         //jdbcTemplate.update("insert into ride (name, duration) values (?,?)", ride.getName(), ride.getDuration());
         
-        /*
         SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate);
         
         List<String> columns = new ArrayList<>();
@@ -43,10 +40,10 @@ public class RideRepositoryImpl implements RideRepository {
         
         insert.setGeneratedKeyName("id");
         
-        Number key = insert.executeAndReturnKey(data);
-        System.out.println(key);
-        */
+        Number id = insert.executeAndReturnKey(data);
+        System.out.println(id);
         
+        /*
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(new PreparedStatementCreator() {
             
@@ -61,6 +58,7 @@ public class RideRepositoryImpl implements RideRepository {
         }, keyHolder);
         
         Number id = keyHolder.getKey();
+        */
         
         return getRide(id.intValue());
     }
