@@ -22,8 +22,9 @@ public class RideRepositoryImpl implements RideRepository {
     public Ride createRide(Ride ride) {
         
         //"Update" does everything but select.
-//        jdbcTemplate.update("insert into ride (name, duration) values (?,?)", ride.getName(), ride.getDuration());
+        jdbcTemplate.update("insert into ride (name, duration) values (?,?)", ride.getName(), ride.getDuration());
         
+        /*
         SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate);
         
         List<String> columns = new ArrayList<>();
@@ -41,6 +42,7 @@ public class RideRepositoryImpl implements RideRepository {
         
         Number key = insert.executeAndReturnKey(data);
         System.out.println(key);
+        */
         
         return null;
     }
