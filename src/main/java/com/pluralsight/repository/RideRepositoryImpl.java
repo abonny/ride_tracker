@@ -14,6 +14,16 @@ public class RideRepositoryImpl implements RideRepository {
     
     @Autowired
     private JdbcTemplate jdbcTemplate;
+    
+    @Override
+    public Ride createRide(Ride ride) {
+        
+        //"Update" does everything but select.
+        //HAS BUG java.sql.SQLException: Unknown system variable 'query_cache_size'
+        //jdbcTemplate.update("insert into ride (name, duration) values (?,?)", ride.getName(), ride.getDuration());
+        
+        return null;
+    }
 
 	@Override
 	public List<Ride> getRides() {
@@ -24,5 +34,9 @@ public class RideRepositoryImpl implements RideRepository {
 		rides.add(ride);
 		return rides;
 	}
+
+
+
+
 	
 }
