@@ -40,4 +40,12 @@ public class RestControllerTest {
 			System.out.println("Ride name: " + ride.getName());
 		}
 	}
+	
+	@Test(timeout = 3000)
+	public void testGetRide() {
+	    RestTemplate restTemplate = new RestTemplate();
+	    Ride ride = restTemplate.getForObject("http://localhost:8080/ride_tracker/ride/1", Ride.class);
+	    System.out.println("Ride name:  "+ride.getName());
+	}
+	
 }
