@@ -18,7 +18,7 @@ public class RestControllerTest {
         RestTemplate restTemplate = new RestTemplate();
         
         Ride ride = new Ride();
-        ride.setName("Round Valley POST");
+        ride.setName("SageBrush Trail");
         ride.setDuration(38);
         
         //restTemplate.put("http://localhost:8080/ride_tracker/ride", ride);
