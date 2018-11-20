@@ -18,11 +18,10 @@ public class RideController {
 	@Autowired
 	private RideService rideService;
 	
-	@RequestMapping(value = "/ride", method = RequestMethod.PUT)
+	@RequestMapping(value = "/ride", method = RequestMethod.POST)
 	public @ResponseBody Ride createRide(@RequestBody Ride ride)
 	{
-	    rideService.createRide(ride);
-	    return null;
+	    return rideService.createRide(ride);
 	}
 	
 	@RequestMapping(value = "/rides", method = RequestMethod.GET)

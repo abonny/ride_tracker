@@ -18,10 +18,12 @@ public class RestControllerTest {
         RestTemplate restTemplate = new RestTemplate();
         
         Ride ride = new Ride();
-        ride.setName("Rounded Valley");
+        ride.setName("Round Valley POST");
         ride.setDuration(38);
         
-        restTemplate.put("http://localhost:8080/ride_tracker/ride", ride);
+        //restTemplate.put("http://localhost:8080/ride_tracker/ride", ride);
+        ride = restTemplate.postForObject("http://localhost:8080/ride_tracker/ride", 
+                ride, ride.getClass());
     }
 
 	@Test(timeout=3000)
