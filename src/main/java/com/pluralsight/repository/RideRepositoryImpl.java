@@ -20,7 +20,7 @@ public class RideRepositoryImpl implements RideRepository {
         
         //"Update" does everything but select.
         //HAS BUG java.sql.SQLException: Unknown system variable 'query_cache_size'
-        //jdbcTemplate.update("insert into ride (name, duration) values (?,?)", ride.getName(), ride.getDuration());
+        jdbcTemplate.update("insert into ride (name, duration) values (?,?)", ride.getName(), ride.getDuration());
         
         return null;
     }
