@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
@@ -91,7 +92,13 @@ public class RideRepositoryImpl implements RideRepository {
 	
 	@Override
 	public void deleteRide(Integer id) {
-	    jdbcTemplate.update("delete from ride where id = ?", id);
+//	    jdbcTemplate.update("delete from ride where id = ?", id);
+	    NamedParameterJdbcTemplate namedTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
+	    
+	    Map<String, Object> paramMap = new HashMap<>();
+	    paramMap.put("id", id);
+	    
+	    namedTemplate.update("delete from ride where id = :id", paramMap);
 	}
 	
 }
