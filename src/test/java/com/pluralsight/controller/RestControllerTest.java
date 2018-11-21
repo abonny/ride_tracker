@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.pluralsight.model.Ride;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class RestControllerTest {
