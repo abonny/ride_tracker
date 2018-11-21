@@ -51,4 +51,11 @@ public class RideServiceImpl implements RideService {
         rideRepository.updateRides(pairs);
         
     }
+    
+    @Override
+    public void deleteRide(Integer id) {
+        // TODO Auto-generated method stub
+        rideRepository.deleteRide(id);
+    }
+    
 }
